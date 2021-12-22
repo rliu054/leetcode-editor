@@ -28,12 +28,12 @@ public enum CodeTypeEnum {
     TypeScript("TypeScript", "typescript", ".ts", "//", "/**\n%s\n*/"),
     ;
 
-
-    private String type;
-    private String langSlug;
-    private String suffix;
-    private String comment;
-    private String multiLineComment;
+    private final String template = "from typing import *\n\n\n";
+    private final String type;
+    private final String langSlug;
+    private final String suffix;
+    private final String comment;
+    private final String multiLineComment;
 
     CodeTypeEnum(String type, String langSlug, String suffix, String comment, String multiLineComment) {
         this.type = type;
@@ -71,6 +71,10 @@ public enum CodeTypeEnum {
 
     public String getComment() {
         return comment;
+    }
+
+    public String getTemplate() {
+        return template;
     }
 
     public String getMultiLineComment() {
